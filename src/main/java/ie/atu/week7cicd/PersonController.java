@@ -42,5 +42,10 @@ public class PersonController {
     public Person delete(@RequestParam Long id) {
         return service.delete(id);
     }
+
+    @GetMapping("/{employeeId}")
+    public Person findByEmployeeId(@PathVariable String employeeId) {
+        return service.findByEmployeeId(employeeId);
+    }
 }
 

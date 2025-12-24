@@ -33,5 +33,10 @@ public class PersonService {
         repo.delete(person);
         return person;
     }
+
+    public Person findByEmployeeId(String id) {
+        return repo.findByEmployeeId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Person Not found"));
+    }
 }
 
