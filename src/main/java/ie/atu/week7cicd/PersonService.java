@@ -23,7 +23,7 @@ public class PersonService {
         existingPerson.setEmployeeId(p.getEmployeeId());
         existingPerson.setPosition(p.getPosition());
         existingPerson.setDepartment(p.getDepartment());
-        return repo.save(p);
+        return repo.save(existingPerson);
     }
 
     public Person delete(Long id) {
