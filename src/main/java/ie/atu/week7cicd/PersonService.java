@@ -23,7 +23,7 @@ public class PersonService {
         existingPerson.setEmployeeId(p.getEmployeeId());
         existingPerson.setPosition(p.getPosition());
         existingPerson.setDepartment(p.getDepartment());
-        return repo.save(p);
+        return repo.save(existingPerson);
     }
 
     public Person delete(Long id) {
@@ -32,6 +32,11 @@ public class PersonService {
 
         repo.delete(person);
         return person;
+    }
+
+    public Person findByEmployeeId(String id) {
+        return repo.findByEmployeeId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Person Not found"));
     }
 }
 
